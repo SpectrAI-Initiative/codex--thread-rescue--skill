@@ -93,12 +93,31 @@ def main() -> int:
     readme_path = repo_root / "README.md"
     openai_path = repo_root / "agents" / "openai.yaml"
     install_script = repo_root / "scripts" / "install_skill.py"
+    visuals_script = repo_root / "scripts" / "generate_readme_visuals.py"
     repair_script = repo_root / "scripts" / "repair_codex_desktop_threads.py"
     banner_path = repo_root / "assets" / "codex-thread-rescue-banner.svg"
     icon_path = repo_root / "assets" / "codex-thread-rescue-icon.svg"
     logo_path = repo_root / "assets" / "codex-thread-rescue-logo.svg"
+    readme_before = repo_root / "assets" / "readme" / "thread-rescue-before.png"
+    readme_invoke = repo_root / "assets" / "readme" / "thread-rescue-invoke.png"
+    readme_after = repo_root / "assets" / "readme" / "thread-rescue-after.png"
+    readme_demo = repo_root / "assets" / "readme" / "thread-rescue-demo.gif"
 
-    for path in [skill_path, readme_path, openai_path, install_script, repair_script, banner_path, icon_path, logo_path]:
+    for path in [
+        skill_path,
+        readme_path,
+        openai_path,
+        install_script,
+        visuals_script,
+        repair_script,
+        banner_path,
+        icon_path,
+        logo_path,
+        readme_before,
+        readme_invoke,
+        readme_after,
+        readme_demo,
+    ]:
         require_file(path)
 
     frontmatter = parse_skill_frontmatter(skill_path)
@@ -111,8 +130,10 @@ def main() -> int:
     for needle in [
         "$codex--thread-rescue--skill",
         "scripts/install_skill.py",
+        "scripts/generate_readme_visuals.py",
         "## FAQ",
         "## Quick start",
+        "## Visual walkthrough",
     ]:
         if needle not in readme_text:
             fail(f"README.md is missing expected content: {needle}")
@@ -139,6 +160,7 @@ def main() -> int:
         fail("agents/openai.yaml policy.allow_implicit_invocation must be true")
 
     run_help(["python3", str(install_script), "--help"], repo_root)
+    run_help(["python3", str(visuals_script)], repo_root)
     run_help(["python3", str(repair_script), "--help"], repo_root)
 
     print("[OK] Skill metadata and bundled scripts validated successfully.")

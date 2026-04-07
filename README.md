@@ -28,11 +28,45 @@ Then restart Codex Desktop and ask Codex:
 Use $codex--thread-rescue--skill to restore missing local Codex Desktop threads for /absolute/path/to/project.
 ```
 
+## Visual walkthrough
+
+The panels below are sanitized walkthrough illustrations of the typical failure mode and repair flow. They are intentionally generic so the repository can explain the workflow without exposing private project names or real thread titles.
+
+<p align="center">
+  <img src="assets/readme/thread-rescue-demo.gif" alt="Animated walkthrough of the missing-thread recovery flow" width="960">
+</p>
+
+**1. Before repair**
+
+<p align="center">
+  <img src="assets/readme/thread-rescue-before.png" alt="Illustrated before state where the Codex Desktop sidebar is incomplete" width="960">
+</p>
+
+The failure mode is usually obvious in the left sidebar first: only a partial set of recent threads appears even though older local threads still exist on disk.
+
+**2. Invoke from Codex or CLI**
+
+<p align="center">
+  <img src="assets/readme/thread-rescue-invoke.png" alt="Illustrated invocation flow using the skill prompt or CLI dry run" width="960">
+</p>
+
+Start with either the skill prompt or a manual dry run. The recommended path is still read-only first, with a JSON summary before any write.
+
+**3. After repair**
+
+<p align="center">
+  <img src="assets/readme/thread-rescue-after.png" alt="Illustrated after state where the missing threads are visible again in the sidebar" width="960">
+</p>
+
+Once the repair is applied, the workspace thread list becomes visible again and Desktop navigation behaves consistently.
+
 ## What it includes
 
 - `SKILL.md`: trigger metadata and operational workflow for Codex
 - `agents/openai.yaml`: UI-facing metadata for skill lists and chips
+- `assets/readme/*`: reproducible walkthrough visuals for the public README
 - `scripts/install_skill.py`: one-command installer for local Codex skill setup
+- `scripts/generate_readme_visuals.py`: regenerate the README walkthrough PNG and GIF assets
 - `scripts/repair_codex_desktop_threads.py`: deterministic repair script
 
 ## What the script does
