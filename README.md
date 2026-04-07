@@ -11,6 +11,7 @@ It targets the failure mode where old threads still exist in `state_5.sqlite`, b
 ## What it includes
 
 - `SKILL.md`: trigger metadata and operational workflow for Codex
+- `agents/openai.yaml`: UI-facing metadata for skill lists and chips
 - `scripts/repair_codex_desktop_threads.py`: deterministic repair script
 
 ## What the script does
@@ -59,3 +60,7 @@ python3 scripts/repair_codex_desktop_threads.py --cwd /absolute/path/to/project 
 - The script is read-only unless `--apply` is provided.
 - Before modifying state, it creates timestamped backups of the affected global state and SQLite database files.
 - The current implementation is intended for local Codex Desktop setups on macOS.
+
+## License
+
+Apache-2.0. See `LICENSE`.

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">Codex Thread Rescue Icon</title>
+  <desc id="desc">Small icon for the Codex Thread Rescue skill.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08131f"/>
+      <stop offset="100%" stop-color="#0f3d3e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7ff2c4"/>
+      <stop offset="100%" stop-color="#64c4ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="192" height="192" rx="36" fill="url(#bg)"/>
+  <rect x="34" y="32" width="124" height="128" rx="30" fill="#091a2b" stroke="#7ff2c4" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M112 62H84c-16 0-28 12-28 28v16c0 16 12 28 28 28h28" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-width="18"/>
+  <circle cx="120" cy="90" r="11" fill="#64c4ff"/>
+  <circle cx="120" cy="118" r="11" fill="#7ff2c4"/>
+</svg>
