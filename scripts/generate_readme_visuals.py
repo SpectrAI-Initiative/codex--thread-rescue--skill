@@ -19,6 +19,7 @@ except ModuleNotFoundError as exc:
 WIDTH = 1600
 HEIGHT = 980
 OUTPUT_DIR = Path(__file__).resolve().parents[1] / "assets" / "readme"
+WORKSPACE_LABEL = "example-workspace / project"
 
 
 def rgba(value: str, alpha: int = 255) -> tuple[int, int, int, int]:
@@ -119,7 +120,7 @@ def draw_sidebar(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], item
     draw.rectangle((sidebar_x2, y1, sidebar_x2 + 1, y2), fill=rgba("#27485d", 120))
 
     draw.text((x1 + 28, y1 + 28), "Projects", font=FONT_SMALL, fill=rgba("#8fb6ca"))
-    draw.text((x1 + 28, y1 + 64), "VIPER-R1 / VIPER_R1_ori", font=FONT_BODY, fill=rgba("#eaf7ff"))
+    draw.text((x1 + 28, y1 + 64), WORKSPACE_LABEL, font=FONT_BODY, fill=rgba("#eaf7ff"))
     draw_chip(draw, (x1 + 28, y1 + 104), "Codex Desktop", "#0b2732", "#4dd1a8", "#d9fff0")
 
     y = y1 + 168
