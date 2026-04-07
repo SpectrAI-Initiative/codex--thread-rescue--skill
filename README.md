@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/codex-thread-rescue-banner.svg" alt="Codex Thread Rescue" width="960">
+</p>
+
 # codex--thread-rescue--skill
 
 Reusable Codex skill for repairing missing local project threads in Codex Desktop.
@@ -23,10 +27,12 @@ It targets the failure mode where old threads still exist in `state_5.sqlite`, b
 Clone or copy this repository to:
 
 ```text
-~/.codex/skills/desktop-thread-repair
+~/.codex/skills/codex--thread-rescue--skill
 ```
 
 After that, Codex can trigger the skill when a user asks to restore missing local Desktop threads.
+
+The skill's internal name is also `codex--thread-rescue--skill`, so the repo name, install folder, and skill metadata stay aligned.
 
 ## Run manually
 

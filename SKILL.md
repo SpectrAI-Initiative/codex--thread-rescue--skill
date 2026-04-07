@@ -1,9 +1,8 @@
----
-name: desktop-thread-repair
+name: codex--thread-rescue--skill
 description: Use when local Codex Desktop is missing old repo threads in the left sidebar, old project threads do not show up in the Desktop thread list, or codex://threads deeplinks do nothing. This skill diagnoses Codex Desktop thread visibility issues for a workspace, patches pinned thread metadata in global state, and, when needed, rewrites hidden thread model_provider values so Desktop stops filtering them out.
 ---
 
-# Desktop Thread Repair
+# Codex Thread Rescue
 
 Use the bundled script for deterministic repair:
 
