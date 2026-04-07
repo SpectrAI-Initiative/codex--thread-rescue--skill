@@ -89,6 +89,36 @@ python3 scripts/repair_codex_desktop_threads.py --cwd /absolute/path/to/project 
 - The visibility check relies on `codex app-server`.
 - On non-macOS setups, skip `--restart-desktop` and relaunch Desktop manually if needed.
 
+## Repository checks
+
+Run the same basic validation locally that GitHub Actions runs on every push and pull request:
+
+```bash
+python3 scripts/validate_skill.py
+```
+
+## FAQ
+
+### I installed the repo, but the skill still does not show up in Codex Desktop
+
+Make sure the installed folder is exactly `~/.codex/skills/codex--thread-rescue--skill`, then restart Codex Desktop. If you cloned the repo somewhere else first, run `python3 scripts/install_skill.py` from the repo root to copy the skill into the right place.
+
+### Why do old threads exist on disk but not in the left sidebar?
+
+This usually means Desktop visibility is filtering them out even though the thread rows still exist in `state_5.sqlite`. The most common causes are stale global state pins, missing workspace hints, or provider-filtered visibility.
+
+### Is it safe to run?
+
+Yes, the default mode is read-only. Use `--print-json` or a plain dry run first, then only add `--apply` if the summary matches what you expect. Before any write, the repair script creates timestamped backups.
+
+### Do I need to use the script manually every time?
+
+No. Once the repo is installed as a skill, you can ask Codex directly with a prompt like `Use $codex--thread-rescue--skill to restore missing local Codex Desktop threads for /absolute/path/to/project.`
+
+### Does this work outside macOS?
+
+Mostly yes for diagnosis and repairs, but the Desktop restart helper is macOS-oriented. On other systems, skip `--restart-desktop` and relaunch the app yourself if needed.
+
 ## Notes
 
 - The script is read-only unless `--apply` is provided.
