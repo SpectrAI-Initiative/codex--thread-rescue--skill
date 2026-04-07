@@ -2,10 +2,18 @@
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 from typing import Iterable
 
-from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont
+try:
+    from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont
+except ModuleNotFoundError as exc:
+    if exc.name == "PIL":
+        print("[FAIL] Pillow is required to regenerate the README walkthrough visuals.")
+        print("[INFO] Install it with: python3 -m pip install Pillow")
+        raise SystemExit(1)
+    raise
 
 
 WIDTH = 1600

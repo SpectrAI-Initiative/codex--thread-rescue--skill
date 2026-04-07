@@ -131,6 +131,12 @@ Run the same basic validation locally that GitHub Actions runs on every push and
 python3 scripts/validate_skill.py
 ```
 
+If you want to regenerate the README walkthrough PNG and GIF assets locally, install `Pillow` first:
+
+```bash
+python3 -m pip install Pillow
+```
+
 ## FAQ
 
 ### I installed the repo, but the skill still does not show up in Codex Desktop
