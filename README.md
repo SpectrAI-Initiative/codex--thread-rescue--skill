@@ -1,4 +1,4 @@
-# codex-desktop-thread-repair
+# codex--thread-rescue--skill
 
 Reusable Codex skill for repairing missing local project threads in Codex Desktop.
 
