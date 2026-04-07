@@ -1,10 +1,10 @@
 interface:
   display_name: "Codex Thread Rescue"
-  short_description: "Recover hidden Codex Desktop threads"
+  short_description: "Bring back missing Codex Desktop threads"
   icon_small: "./assets/codex-thread-rescue-icon.svg"
   icon_large: "./assets/codex-thread-rescue-logo.svg"
   brand_color: "#7FF2C4"
-  default_prompt: "Use $codex--thread-rescue--skill to diagnose and restore missing local Codex Desktop threads for this workspace."
+  default_prompt: "Use $codex--thread-rescue--skill to make the missing local Codex Desktop threads for this workspace visible again."
 
 policy:
   allow_implicit_invocation: true

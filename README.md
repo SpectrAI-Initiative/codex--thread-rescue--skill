@@ -8,10 +8,31 @@ Reusable Codex skill for repairing missing local project threads in Codex Deskto
 
 It targets the failure mode where old threads still exist in `state_5.sqlite`, but the Desktop sidebar and `codex://threads/<id>` deeplinks do not surface them for a workspace. In practice this often comes from provider-filtered thread visibility, stale global state pins, or both.
 
+## Quick start
+
+Fastest install:
+
+```bash
+git clone https://github.com/SpectrAI-Initiative/codex--thread-rescue--skill.git ~/.codex/skills/codex--thread-rescue--skill
+```
+
+If you already cloned the repo somewhere else:
+
+```bash
+python3 scripts/install_skill.py
+```
+
+Then restart Codex Desktop and ask Codex:
+
+```text
+Use $codex--thread-rescue--skill to restore missing local Codex Desktop threads for /absolute/path/to/project.
+```
+
 ## What it includes
 
 - `SKILL.md`: trigger metadata and operational workflow for Codex
 - `agents/openai.yaml`: UI-facing metadata for skill lists and chips
+- `scripts/install_skill.py`: one-command installer for local Codex skill setup
 - `scripts/repair_codex_desktop_threads.py`: deterministic repair script
 
 ## What the script does
@@ -54,6 +75,19 @@ JSON summary:
 ```bash
 python3 scripts/repair_codex_desktop_threads.py --cwd /absolute/path/to/project --print-json
 ```
+
+## Why it is safe
+
+- Dry-run is the default. Nothing is modified unless `--apply` is provided.
+- The repair script writes timestamped backups before it changes Desktop global state or the SQLite thread database.
+- Provider rewrites only target threads that already exist for the same workspace but are hidden from Desktop's default list.
+- You can inspect the JSON summary first with `--print-json` before applying anything.
+
+## Compatibility
+
+- Best suited for local Codex Desktop on macOS.
+- The visibility check relies on `codex app-server`.
+- On non-macOS setups, skip `--restart-desktop` and relaunch Desktop manually if needed.
 
 ## Notes
 

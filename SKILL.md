@@ -29,6 +29,12 @@ python3 scripts/repair_codex_desktop_threads.py --cwd /absolute/path/to/project
 python3 scripts/repair_codex_desktop_threads.py --cwd /absolute/path/to/project --apply --restart-desktop
 ```
 
+## Typical prompt
+
+```text
+Use $codex--thread-rescue--skill to restore the missing local Codex Desktop threads for /absolute/path/to/project.
+```
+
 ## What the script does
 
 - Reads the project's threads from `$CODEX_HOME/state_5.sqlite`
